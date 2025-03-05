@@ -1,0 +1,6 @@
+devel_space: /home/antun/student_apad_ws/devel
+install: false
+install_space: /home/antun/student_apad_ws/install
+profile: default
+source_space: /home/antun/student_apad_ws/src
+workspace: /home/antun/student_apad_ws

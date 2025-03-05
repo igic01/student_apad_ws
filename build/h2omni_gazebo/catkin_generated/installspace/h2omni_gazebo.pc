@@ -1,0 +1,8 @@
+prefix=/home/antun/student_apad_ws/install
+
+Name: h2omni_gazebo
+Description: Description of h2omni_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

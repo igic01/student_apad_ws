@@ -1,0 +1,1 @@
+/home/antun/student_apad_ws/devel/.private/h2omni_control/lib/pkgconfig/h2omni_control.pc

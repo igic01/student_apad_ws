@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<robot>
+
+  <gazebo reference="h2omni_1">
+    <static>0</static>
+    <dampingFactor>0.01</dampingFactor>
+    <turnGravityOff>true</turnGravityOff>
+    <!-- <gravity>0</gravity> -->
+  </gazebo>
+  <gazebo reference="h2omni_2">
+    <static>0</static>
+    <dampingFactor>0.01</dampingFactor>
+    <turnGravityOff>true</turnGravityOff>
+    <!-- <gravity>0</gravity> -->
+  </gazebo>
+
+</robot>

@@ -1,0 +1,8 @@
+prefix=/home/antun/student_apad_ws/devel/.private/h2omni_description
+
+Name: h2omni_description
+Description: Description of h2omni_description
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

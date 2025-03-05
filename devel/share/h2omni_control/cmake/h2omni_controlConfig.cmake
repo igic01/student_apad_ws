@@ -1,0 +1,1 @@
+/home/antun/student_apad_ws/devel/.private/h2omni_control/share/h2omni_control/cmake/h2omni_controlConfig.cmake

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!-- Revolute-Revolute Manipulator -->
+<robot name="h2omni" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="h2omni" params="suffix">
+
+        <!-- Constants for robot dimensions -->
+        <xacro:property name="PI" value="3.1415926535897931"/>
+        <!-- arbitrary value for mass -->
+        <xacro:property name="mass" value="20" />
+        <xacro:property name="height" value="0.8" />
+        <xacro:property name="width" value="0.8" />
+        <!-- Import all Gazebo-customization elements, including Gazebo colors -->
+        <xacro:include filename="$(find h2omni_description)/urdf/h2omni.gazebo" />
+        <!-- Used for fixing robot to Gazebo 'base_link' -->
+        
+        <link name="h2omni_${suffix}">
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <box size="${width} ${width} ${height}"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://h2omni_description/meshes/H3O_Omni_simplified.dae"/>
+                </geometry>
+            </visual>
+            <inertial>
+                <mass value="${mass}" />
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <inertia ixx="10" ixy="0" ixz="0" iyy="10" iyz="0" izz="10" />
+            </inertial>
+        </link>
+        <gazebo>
+            <plugin name="h2omni_${suffix}_gazebo_ros_force" filename="libgazebo_ros_force.so">
+                <alwaysOn>true</alwaysOn>
+                <update>100</update>
+                <updateRate>100.0</updateRate>
+                <bodyName>h2omni_${suffix}</bodyName>
+                <topicName>h2omni_${suffix}_force</topicName>
+            </plugin>
+        </gazebo>
+
+    </xacro:macro>
+
+    <xacro:h2omni suffix="1"></xacro:h2omni>
+</robot>
