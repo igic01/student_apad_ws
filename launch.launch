@@ -1,0 +1,12 @@
+launch:
+<launch>
+
+    <include file="$(find uuv_gazebo_worlds)/launch/ocean_waves.launch" />
+    
+    <arg name="robot_model" default="$(find h2omni_description)/urdf/h2omni.xacro" />
+    <param name="robot_description" command="$(find xacro)/xacro $(arg robot_model)"/>
+
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -model h2omni-1 -param robot_description -x 0 -y 0 -z 0"/>
+    <!-- <node name="urdf_spawner2" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -model h2omni-2 -param robot_description -x 2 -y 2 -z 0"/> -->
+
+</launch>

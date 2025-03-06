@@ -34,14 +34,31 @@
             </inertial>
         </link>
         <gazebo>
-            <plugin name="h2omni_${suffix}_gazebo_ros_force" filename="libgazebo_ros_force.so">
-                <alwaysOn>true</alwaysOn>
-                <update>100</update>
-                <updateRate>100.0</updateRate>
-                <bodyName>h2omni_${suffix}</bodyName>
-                <topicName>h2omni_${suffix}_force</topicName>
+            <plugin name='uuv_gazebo_plugins' filename='libuuv_underwater_object_ros_plugin.so'>
+                <namespace>hydrodynamics</namespace>
+                <fluid_density>997</fluid_density>
+                <flow_velocity_topic>current_velocity</flow_velocity_topic>
+                <debug>0</debug>
+                <link name='h2omni_${suffix}'>
+                    <neutrally_buoyant>0</neutrally_buoyant>
+                    <volume>1.83826</volume>
+                    <box>
+                    <width>1.5</width>
+                    <length>2.6</length>
+                    <height>1.6</height>
+                    </box>
+                    <center_of_buoyancy>0.0 0.0 0.3</center_of_buoyancy>
+                    <hydrodynamic_model>
+                    <type>fossen</type>
+                    <added_mass>779.79 -6.8773 -103.32 8.5426 -165.54 -7.8033 -6.8773 1222 51.29 409.44 -5.8488 62.726 -103.32 51.29 3659.9 6.1112 -386.42 10.774 8.5426 409.44 6.1112 534.9 -10.027 21.019 -165.54 -5.8488 -386.42 -10.027 842.69 -1.1162 -7.8033 62.726 10.775 21.019 -1.1162 224.32</added_mass>
+                    <linear_damping>-74.82 -69.48 -728.4 -268.8 -309.77 -105</linear_damping>
+                    <quadratic_damping>-748.22 -992.53 -1821.01 -672 -774.44 -523.27</quadratic_damping>
+                    </hydrodynamic_model>
+                </link>
+                <robotNamespace>/h2omni_1/</robotNamespace>
             </plugin>
         </gazebo>
+
 
     </xacro:macro>
 
